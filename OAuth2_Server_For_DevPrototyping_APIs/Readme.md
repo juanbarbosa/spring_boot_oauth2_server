@@ -1,3 +1,4 @@
+# Hello Internet
 Updated code to work with spring-boot-starter-parent version 2.1.4.RELEASE
 Since I couldn't get it to work as is in my Spring Tool Suite 4 environment as is.
 
@@ -12,5 +13,6 @@ Code is good for prototyping apis, after the api has been secured.
 If you have the book handy, please refer to pictures 7.2, 7.3, 7.4 and 7.5 to use.
 In case you don't, please refer to the steps 1, 2 and 3 jpegs that I've added to get an idea on how to consume this example.
 
-Seriously though: Go buy the book if you don't own a copy, John Carnell put a lot of work to make that book and the code examples. 
+## Seriously though:
+Go buy the book if you don't own a copy, John Carnell put a lot of work to make that book and the code examples. 
 Don't be stingy and support the author, hard work should never go unrewarded.
