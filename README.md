@@ -11,4 +11,4 @@ Projects:
    1) I'm teaching myself spring, and this is the example that I'm going off. I found that the code did not work on my STS 4 (Spring Tool Suite 4), because it needed a bit of tweaking. So, I'm trying to help other newbies such as me to avoid the struggle.
    2) Also, John's repo for this example has a lot on uncessary code that, I consider, would distract from the code that really matters to illustrate this example.
    
-   2. OAuth2_Server_w_Config_In_Db: [Not Committed yet] Is an upgrade is a step forwards from 1. where all the hardcoding from the source code has been removed and pushed into the database, and get one step closer to production level quality.
+   2. OAuth2_Server_w_Config_In_Db: [Not Committed yet] Is a step forwards from 1. Where all the hardcoding from the source code has been removed and pushed into the database, and get one step closer to production level quality.
