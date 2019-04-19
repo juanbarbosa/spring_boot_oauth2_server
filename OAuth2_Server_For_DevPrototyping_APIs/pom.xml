@@ -10,9 +10,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.juanbarbosa</groupId>
-	<artifactId>oauth2_server_example_w_in_memory_database</artifactId>
+	<artifactId>oauth2_server_example_w_in_memory_database_and_hardcoded_users_through_code</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>OAuth2_Example</name>
+	<name>OAuth2_SMIA_Chpt7_Example</name>
 	<description>
 		Updated code to work with spring-boot-starter-parent version 2.1.4.RELEASE
 	
