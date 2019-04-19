@@ -11,12 +11,6 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 @Configuration
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
-               .anyRequest().authenticated() .antMatchers("/oauth/token/").permitAll().and().formLogin().and().httpBasic();
-    }
-	
 	@Override @Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
@@ -31,9 +25,8 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
-			.passwordEncoder(NoOpPasswordEncoder.getInstance())
-			.withUser("john.carnell").password("password1").roles("USER")
+			.withUser("john.carnell").password("{noop}password1").roles("USER")
 			.and()
-			.withUser("william.woodward").password("password2").roles("USER", "ADMIN");
+			.withUser("william.woodward").password("{noop}password2").roles("USER", "ADMIN");
 	}
 }
