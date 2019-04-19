@@ -1,6 +1,6 @@
-# Hello Internet
+# Hello Again Internet
 Updated code to work with spring-boot-starter-parent version 2.1.4.RELEASE
-Since I couldn't get it to work as is in my Spring Tool Suite 4 environment as is.
+Since I couldn't get it to work as presented in the book in my Spring Tool Suite 4 environment as is.
 
 Example taken from Chapter 7 of the book Spring Microservices in Action by John Carnell. Published by Manning.
 Code has been slightly updated and from what is on his github page
