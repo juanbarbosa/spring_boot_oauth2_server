@@ -15,4 +15,4 @@ Projects:
    1. OAuth2_Server_For_DevPrototyping_APIs: This project is straight up out of the book, it uses a in-memory database.
    This code has a minor tweak from the original in the OAuth2Config.java where we needed to add {noop} to the .secret code on line 23. Main Reason is because (I think, as I'm still learning spring here) that the NoPasswordEncoder class is deprecated in Spring 5 and therefore, you need to specify the {noop} string to enforce the NoPasswordEncoder functionality, or at runtime you'll get a NoPasswordEncoder issue. Also, this version removes a lot of unnecessary stuff that is in the original repo, as stated on 2)
    
-   2. OAuth2_Server_w_Config_In_MySql: [Not Committed yet] Is an upgrade is a step forwards removing all the hardcoding from the source code and moving it to the database. 
+   2. OAuth2_Server_w_Config_In_Db: [Not Committed yet] Is an upgrade is a step forwards from 1. where all the hardcoding from the source code has been removed and pushed into the database. 
