@@ -14,7 +14,3 @@ In case you don't, please refer to the steps 1, 2 and 3 jpegs that I've added to
 ## Seriously though:
 Go buy the book if you don't own a copy, John Carnell put a lot of work to make that book and the code examples. 
 Don't be stingy and support the author, hard work should never go unrewarded.
-
-## Notes:
-Pretty decent example from John to improve everyday prototyping and hacking. 
-It works for forcing a dev to develop their API from a point where authorization and authentication are already underway. 
