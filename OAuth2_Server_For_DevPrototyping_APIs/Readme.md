@@ -8,11 +8,13 @@ Code has been slightly updated and from what is on his github page
 and turned into a bare bones version, where only what is necessary to illustrate the example 
 for that chapter is included.
 
-Code is good for prototyping apis, after the api has been secured.
-
 If you have the book handy, please refer to pictures 7.2, 7.3, 7.4 and 7.5 to use.
 In case you don't, please refer to the steps 1, 2 and 3 jpegs that I've added to get an idea on how to consume this example.
 
 ## Seriously though:
 Go buy the book if you don't own a copy, John Carnell put a lot of work to make that book and the code examples. 
 Don't be stingy and support the author, hard work should never go unrewarded.
+
+## Notes:
+Pretty decent example from John to improve everyday prototyping and hacking. 
+It works for forcing a dev to develop their API from a point where authorization and authentication are already underway. 
