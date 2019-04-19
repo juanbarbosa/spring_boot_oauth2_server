@@ -1,0 +1,8 @@
+logging:
+  level:
+    org.springframework.web: WARN
+    com.github.juanbarbosa: DEBUG
+
+server:
+  servlet:
+    context-path: /auth 
