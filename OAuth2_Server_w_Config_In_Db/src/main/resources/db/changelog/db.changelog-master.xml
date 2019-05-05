@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+	
+	<changeSet author="oauth2_setup" id="1">
+		<preConditions onFail="MARK_RAN">
+			<tableExists tableName="oauth_client_details"/>
+		</preConditions>
+		<comment>drop oauth_client_details if it exists</comment>
+		<dropTable tableName="oauth_client_details"/>
+	</changeSet>
+
+	<changeSet author="oauth2_setup" id="2">
+		<comment>creating oauth_client_details</comment>
+		<createTable tableName="oauth_client_details">
+			<column name="client_id" type="varchar(255)">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="resource_ids" type="varchar(255)"/>
+			<column name="client_secret" type="varchar(255)"/>
+			<column name="scope" type="varchar(255)"/>
+			<column name="authorized_grant_types" type="varchar(255)"/>
+			<column name="web_server_redirect_uri" type="varchar(255)"/>
+			<column name="authorities" type="varchar(255)"/>
+			<column name="access_token_validity" type="int"/>
+			<column name="refresh_token_validity" type="int"/>
+			<column name="additional_information" type="varchar(4096)"/>
+			<column name="autoapprove" type="varchar(255)"/>
+		</createTable>
+	</changeSet>
+   
+   <!-- For a basic web api authentication with oauth, you dont need this table -->
+   <!--changeSet author="oauth2_setup" id="3">
+		<preConditions onFail="MARK_RAN">
+			<tableExists tableName="oauth_client_token"/>
+		</preConditions>
+		<comment>drop oauth_client_token if it exists</comment>
+		<dropTable tableName="oauth_client_token"/>
+	</changeSet>
+
+	<changeSet author="oauth2_setup" id="4">
+		<comment>creating oauth_client_token</comment>
+		<createTable tableName="oauth_client_token">
+			<column name="token_id" type="varchar(255)"/>
+			<column name="token" type="blob"/>
+			<column name="authentication_id" type="varchar(255)">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="user_name" type="varchar(255)"/>
+			<column name="client_id" type="varchar(255)"/>
+		</createTable>
+	</changeSet-->
+   
+   <changeSet author="oauth2_setup" id="5">
+		<preConditions onFail="MARK_RAN">
+			<tableExists tableName="oauth_access_token"/>
+		</preConditions>
+		<comment>drop oauth_access_token if it exists</comment>
+		<dropTable tableName="oauth_access_token"/>
+	</changeSet>
+
+	<changeSet author="oauth2_setup" id="6">
+		<comment>creating oauth_access_token</comment>
+		<createTable tableName="oauth_access_token">
+			<column name="token_id" type="varchar(255)"/>
+			<column name="token" type="blob"/>
+			<column name="authentication_id" type="varchar(255)"/>
+			<column name="user_name" type="varchar(255)"/>
+			<column name="client_id" type="varchar(255)"/>
+			<column name="authentication" type="blob"/>
+			<column name="refresh_token" type="varchar(255)"/>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="oauth2_setup" id="7">
+		<preConditions onFail="MARK_RAN">
+			<tableExists tableName="oauth_refresh_token"/>
+		</preConditions>
+		<comment>drop oauth_refresh_token if it exists</comment>
+		<dropTable tableName="oauth_refresh_token"/>
+	</changeSet>
+
+	<changeSet author="oauth2_setup" id="8">
+		<comment>creating oauth_refresh_token</comment>
+		<createTable tableName="oauth_refresh_token">
+			<column name="token_id" type="varchar(255)"/>
+			<column name="token" type="blob"/>
+			<column name="authentication" type="blob"/>
+		</createTable>
+	</changeSet>
+	
+	<!-- For a basic web api authentication with oauth, you dont need these tables -->
+	<!--changeSet author="oauth2_setup" id="9">
+		<preConditions onFail="MARK_RAN">
+			<tableExists tableName="oauth_code"/>
+		</preConditions>
+		<comment>drop oauth_code if it exists</comment>
+		<dropTable tableName="oauth_code"/>
+	</changeSet>
+
+	<changeSet author="oauth2_setup" id="10">
+		<comment>creating oauth_code</comment>
+		<createTable tableName="oauth_code">
+			<column name="code" type="varchar(255)"/>
+			<column name="authentication" type="blob"/>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="oauth2_setup" id="11">
+		<preConditions onFail="MARK_RAN">
+			<tableExists tableName="oauth_approvals"/>
+		</preConditions>
+		<comment>drop oauth_approvals if it exists</comment>
+		<dropTable tableName="oauth_approvals"/>
+	</changeSet>
+
+	<changeSet author="oauth2_setup" id="12">
+		<comment>creating oauth_approvals</comment>
+		<createTable tableName="oauth_approvals">
+			<column name="userId" type="varchar(255)"/>
+			<column name="clientId" type="varchar(255)"/>
+			<column name="scope" type="varchar(255)"/>
+			<column name="status" type="varchar(10)"/>
+			<column name="expiresAt" type="datetime"/>
+			<column name="lastModifiedAt" type="datetime"/>
+		</createTable>
+	</changeSet-->
+      
+   	<changeSet author="oauth2_setup" id="13">
+		<comment>populating oauth_client_details</comment>
+		<insert tableName="oauth_client_details">
+			<column name="client_id">eagleeye</column>
+			<column name="client_secret">{noop}thisissecret</column>
+			<column name="scope">webclient,mobileclient</column>
+			<column name="authorized_grant_types">refresh_token,password,client_credentials</column>
+		</insert>
+	</changeSet>
+	
+	<changeSet author="spring_sec_setup" id="1">
+		<comment>creating users</comment>
+		<createTable tableName="users">
+			<column name="username" type="nvarchar(50)">
+				<constraints primaryKey="true"/>
+			</column>
+			<column name="password" type="nvarchar(50)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="enabled" type="boolean">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="spring_sec_setup" id="2">
+		<comment>creating authorities</comment>
+		<createTable tableName="authorities">
+			<column name="username" type="nvarchar(50)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="authority" type="nvarchar(50)">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+		<addForeignKeyConstraint constraintName="fk_authorities_users" 
+			referencedTableName="users" baseColumnNames="username" 
+			baseTableName="authorities" referencedColumnNames="username"/>
+		<createIndex tableName="authorities" indexName="ix_auth_username">
+			<column name="username"/>
+			<column name="authority"/>
+		</createIndex>
+	</changeSet>
+	
+	<changeSet author="spring_sec_setup" id="3">
+		<comment>populating users and their authorities</comment>
+		<insert tableName="users">
+			<column name="username">john.carnell</column>
+			<column name="password">{noop}password1</column>
+			<column name="enabled">1</column>
+		</insert>
+		<insert tableName="users">
+			<column name="username">william.woodward</column>
+			<column name="password">{noop}password2</column>
+			<column name="enabled">1</column>
+		</insert>
+		<insert tableName="authorities">
+			<column name="username">john.carnell</column>
+			<column name="authority">ROLE_USER</column>
+		</insert>
+		<insert tableName="authorities">
+			<column name="username">william.woodward</column>
+			<column name="authority">ROLE_USER</column>
+		</insert>
+		<insert tableName="authorities">
+			<column name="username">william.woodward</column>
+			<column name="authority">ROLE_ADMIN</column>
+		</insert>
+	</changeSet>
+</databaseChangeLog> 
