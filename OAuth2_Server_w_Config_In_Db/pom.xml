@@ -10,19 +10,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.juanbarbosa</groupId>
-	<artifactId>oauth2_server_example_w_config_in_db</artifactId>
+	<artifactId>oauth2_server_w_config_in_db</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>OAuth2_Example</name>
 	<description>
-		Updated code to work with spring-boot-starter-parent version 2.1.4.RELEASE
-	
-		Example from Spring Microservices in Action by John Carnell from chapter 7.
-		Code has been slightly updated and from what is on his github page
-			(https://github.com/carnellj/spmia-chapter7/tree/master/authentication-service)
-		and turned into a bare bones version, where only what is necessary to illustrate the example 
-		for that chapter is included.
-		
-		Code is good for prototyping apis, after the api has been secured.
+		Upgrade from previous project OAuth2_Server_For_DevPrototyping_APIs.
+		In this iteration we have moved all hardcoding configuration to the database.
+		In order to come one step closer to a production quality server.
 	</description>
 
 	<properties>
